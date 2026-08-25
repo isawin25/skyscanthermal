@@ -8,9 +8,13 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { Toaster } from "@/components/ui/sonner";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { Header } from "@/components/site/Header";
+import { Footer } from "@/components/site/Footer";
+import { MobileCallBar } from "@/components/site/MobileCallBar";
 
 function NotFoundComponent() {
   return (
@@ -77,21 +81,43 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "SkyScan Thermal Solutions | Thermal Drone Services in Michigan" },
+      {
+        name: "description",
+        content:
+          "Thermal drone services for deer recovery, wildlife and livestock tracking, solar, roofing and building inspections across Michigan. FAA Part 107, insured, 24/7 recovery response.",
+      },
+      { name: "author", content: "SkyScan Thermal Solutions" },
+      { property: "og:site_name", content: "SkyScan Thermal Solutions" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "theme-color", content: "#080808" },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: appCss,
+        href: "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap",
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "SkyScan Thermal Solutions",
+          description:
+            "Thermal drone services for recovery and inspection: deer recovery, wildlife and livestock tracking, solar panel, roofing and building thermal inspections.",
+          telephone: "+1-989-285-7977",
+          email: "Skyscanthermalllc@gmail.com",
+          areaServed: { "@type": "State", name: "Michigan" },
+          founder: { "@type": "Person", name: "Hoyt Munro" },
+        }),
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -119,8 +145,15 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <Header />
+      <main id="content" className="min-h-dvh pb-14 md:pb-0">
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+      </main>
+      <Footer />
+      <MobileCallBar />
+      <Toaster position="top-center" richColors />
     </QueryClientProvider>
   );
 }
+
