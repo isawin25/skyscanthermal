@@ -38,11 +38,12 @@ function lerp(a: number, b: number, t: number) {
 }
 
 function sample(frames: Frame[], p: number): Frame {
-  if (p <= frames[0].p) return frames[0];
+  const first = frames[0]!;
+  if (p <= first.p) return first;
   for (let i = 1; i < frames.length; i++) {
-    if (p <= frames[i].p) {
-      const a = frames[i - 1];
-      const b = frames[i];
+    const a = frames[i - 1]!;
+    const b = frames[i]!;
+    if (p <= b.p) {
       const raw = (p - a.p) / (b.p - a.p);
       const t = raw * raw * (3 - 2 * raw); // smoothstep
       return {
@@ -54,13 +55,13 @@ function sample(frames: Frame[], p: number): Frame {
       };
     }
   }
-  return frames[frames.length - 1];
+  return frames[frames.length - 1]!;
 }
 
 export function DroneScroll() {
   const droneRef = useRef<HTMLDivElement>(null);
   const beamRef = useRef<HTMLDivElement>(null);
-  const [status, setStatus] = useState(STATUS[0].text);
+  const [status, setStatus] = useState(STATUS[0]!.text);
   const [reduced, setReduced] = useState(false);
 
   useEffect(() => {
@@ -95,7 +96,7 @@ export function DroneScroll() {
         beam.style.opacity = p > 0.08 ? "1" : "0";
       }
 
-      let next = STATUS[0].text;
+      let next = STATUS[0]!.text;
       for (const s of STATUS) if (p >= s.p) next = s.text;
       if (next !== lastStatus) {
         lastStatus = next;
