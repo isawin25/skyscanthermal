@@ -34,7 +34,8 @@ function row(label: string, value?: string) {
 
 export async function sendInquiryEmail(p: InquiryPayload) {
   const apiKey = process.env["RESEND_API_KEY"];
-  if (!apiKey) {
+  const lovableKey = process.env["LOVABLE_API_KEY"];
+  if (!apiKey || !lovableKey) {
     console.error("RESEND_API_KEY is not configured — cannot deliver contact form email.");
     return {
       ok: false as const,
@@ -80,11 +81,12 @@ export async function sendInquiryEmail(p: InquiryPayload) {
     .filter(Boolean)
     .join("\n");
 
-  const response = await fetch("https://api.resend.com/emails", {
+  const response = await fetch("https://connector-gateway.lovable.dev/resend/emails", {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${apiKey}`,
       "Content-Type": "application/json",
+      Authorization: `Bearer ${lovableKey}`,
+      "X-Connection-Api-Key": apiKey,
     },
     body: JSON.stringify({
       from,
