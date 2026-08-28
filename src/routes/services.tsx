@@ -92,7 +92,7 @@ function ServicesPage() {
 
       <div className="mx-auto max-w-[80rem] px-4 md:px-8">
         {SERVICES.map((s, i) => {
-          const m = media[s.slug];
+          const m = media[s.slug] ?? media['deer-recovery']!;
           return (
             <section
               key={s.slug}

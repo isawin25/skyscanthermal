@@ -178,11 +178,11 @@ function ContactPage() {
               className="hidden"
             />
 
-            <Field label="Full Name" error={errors.name} required>
+            <Field label="Full Name" error={errors["name"]} required>
               <input name="name" required autoComplete="name" className={field} placeholder="Jane Doe" />
             </Field>
 
-            <Field label="Phone Number" error={errors.phone} required>
+            <Field label="Phone Number" error={errors["phone"]} required>
               <input
                 name="phone"
                 type="tel"
@@ -194,7 +194,7 @@ function ContactPage() {
               />
             </Field>
 
-            <Field label="Email Address" error={errors.email} required>
+            <Field label="Email Address" error={errors["email"]} required>
               <input
                 name="email"
                 type="email"
@@ -206,7 +206,7 @@ function ContactPage() {
               />
             </Field>
 
-            <Field label="Service Needed" error={errors.service} required>
+            <Field label="Service Needed" error={errors["service"]} required>
               <select name="service" required defaultValue="" className={field}>
                 <option value="" disabled>
                   Select a service
@@ -219,7 +219,7 @@ function ContactPage() {
               </select>
             </Field>
 
-            <Field label="Property / Project Location" error={errors.location} required className="md:col-span-2">
+            <Field label="Property / Project Location" error={errors["location"]} required className="md:col-span-2">
               <input
                 name="location"
                 required
@@ -228,7 +228,7 @@ function ContactPage() {
               />
             </Field>
 
-            <Field label="Preferred Contact Method" error={errors.contactMethod} required>
+            <Field label="Preferred Contact Method" error={errors["contactMethod"]} required>
               <select name="contactMethod" required defaultValue="Phone Call" className={field}>
                 <option>Phone Call</option>
                 <option>Text</option>
@@ -245,7 +245,7 @@ function ContactPage() {
               </Field>
             </div>
 
-            <Field label="Message" error={errors.message} required className="md:col-span-2">
+            <Field label="Message" error={errors["message"]} required className="md:col-span-2">
               <textarea
                 name="message"
                 required
@@ -341,9 +341,9 @@ function Field({
 }: {
   label: string;
   children: React.ReactNode;
-  error?: string;
-  required?: boolean;
-  className?: string;
+  error?: string | undefined;
+  required?: boolean | undefined;
+  className?: string | undefined;
 }) {
   return (
     <label className={`block ${className ?? ""}`}>
