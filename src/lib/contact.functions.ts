@@ -25,7 +25,7 @@ const schema = z.object({
 });
 
 export const submitContact = createServerFn({ method: "POST" })
-  .inputValidator((data: unknown) => schema.parse(data))
+  .validator((data: unknown) => schema.parse(data))
   .handler(async ({ data }) => {
     if (data.company) return { ok: false as const, error: "Submission rejected." };
     if (data.elapsedMs < 2500) {
