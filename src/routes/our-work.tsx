@@ -7,12 +7,8 @@ import { RecoveryCTA } from "@/components/site/RecoveryCTA";
 import { ThermalSlider } from "@/components/site/ThermalSlider";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { PROJECTS, PROJECT_CATEGORIES, type Project } from "@/lib/site";
-import roofNormal from "@/assets/roof-normal.jpg";
-import roofThermal from "@/assets/roof-thermal.jpg";
 import fieldNormal from "@/assets/field-normal.jpg";
 import fieldThermal from "@/assets/field-thermal.jpg";
-import solarNormal from "@/assets/solar-normal.jpg";
-import solarThermal from "@/assets/solar-thermal.jpg";
 
 export const Route = createFileRoute("/our-work")({
   head: () => ({
@@ -36,10 +32,7 @@ export const Route = createFileRoute("/our-work")({
   component: OurWorkPage,
 });
 
-function fallbackMedia(p: Project) {
-  if (p.category === "Solar") return { n: solarNormal, t: solarThermal };
-  if (p.category === "Roofing" || p.category === "Thermal Inspection")
-    return { n: roofNormal, t: roofThermal };
+function fallbackMedia(_p: Project) {
   return { n: fieldNormal, t: fieldThermal };
 }
 
