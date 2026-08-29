@@ -19,12 +19,8 @@ import { ThermalSlider } from "@/components/site/ThermalSlider";
 import { RecoveryCTA } from "@/components/site/RecoveryCTA";
 import { CallButton, GhostLink } from "@/components/site/CTAButtons";
 import { SERVICES } from "@/lib/site";
-import roofNormal from "@/assets/roof-normal.jpg";
-import roofThermal from "@/assets/roof-thermal.jpg";
 import fieldNormal from "@/assets/field-normal.jpg";
 import fieldThermal from "@/assets/field-thermal.jpg";
-import solarNormal from "@/assets/solar-normal.jpg";
-import solarThermal from "@/assets/solar-thermal.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
