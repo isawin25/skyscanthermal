@@ -6,12 +6,8 @@ import { RecoveryCTA } from "@/components/site/RecoveryCTA";
 import { CallButton, GhostLink } from "@/components/site/CTAButtons";
 import { ThermalSlider } from "@/components/site/ThermalSlider";
 import { SERVICES } from "@/lib/site";
-import roofNormal from "@/assets/roof-normal.jpg";
-import roofThermal from "@/assets/roof-thermal.jpg";
 import fieldNormal from "@/assets/field-normal.jpg";
 import fieldThermal from "@/assets/field-thermal.jpg";
-import solarNormal from "@/assets/solar-normal.jpg";
-import solarThermal from "@/assets/solar-thermal.jpg";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -36,49 +32,11 @@ export const Route = createFileRoute("/services")({
   component: ServicesPage,
 });
 
-const media: Record<string, { n: string; t: string; nAlt: string; tAlt: string }> = {
-  "deer-recovery": {
-    n: fieldNormal,
-    t: fieldThermal,
-    nAlt: "Dark field at night photographed from a drone",
-    tAlt: "Thermal drone image of a field showing bright animal heat signatures",
-  },
-  "livestock-tracking": {
-    n: fieldNormal,
-    t: fieldThermal,
-    nAlt: "Pasture at night photographed from a drone",
-    tAlt: "Thermal drone image showing livestock heat signatures in a pasture",
-  },
-  "deer-herd-counts": {
-    n: fieldNormal,
-    t: fieldThermal,
-    nAlt: "Large property at night photographed from a drone",
-    tAlt: "Thermal aerial image with multiple highlighted deer heat signatures",
-  },
-  "solar-panel-inspections": {
-    n: solarNormal,
-    t: solarThermal,
-    nAlt: "Solar panel array photographed from a drone",
-    tAlt: "Thermal image of a solar array with a bright hot cell",
-  },
-  "roofing-heat-loss": {
-    n: roofNormal,
-    t: roofThermal,
-    nAlt: "Residential roof photographed from a drone",
-    tAlt: "Thermal image of a roof showing warm areas that may indicate heat loss",
-  },
-  "building-property-inspections": {
-    n: roofNormal,
-    t: roofThermal,
-    nAlt: "Building photographed from a drone",
-    tAlt: "Thermal image of a building envelope showing temperature differences",
-  },
-  "agricultural-custom": {
-    n: solarNormal,
-    t: solarThermal,
-    nAlt: "Farmland photographed from a drone",
-    tAlt: "Thermal aerial image over agricultural land",
-  },
+const media = {
+  n: fieldNormal,
+  t: fieldThermal,
+  nAlt: "Dark field at night photographed from a drone",
+  tAlt: "Thermal drone image of a field showing bright animal heat signatures",
 };
 
 function ServicesPage() {
@@ -92,7 +50,7 @@ function ServicesPage() {
 
       <div className="mx-auto max-w-[80rem] px-4 md:px-8">
         {SERVICES.map((s, i) => {
-          const m = media[s.slug] ?? media['deer-recovery']!;
+          const m = media;
           return (
             <section
               key={s.slug}
