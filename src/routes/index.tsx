@@ -165,32 +165,16 @@ function HomePage() {
             </p>
           </Reveal>
 
-          <Reveal className="mt-10 grid gap-6 lg:grid-cols-2" delay={80}>
-            <ThermalSlider
-              normalSrc={roofNormal}
-              thermalSrc={roofThermal}
-              normalAlt="Aerial photo of a residential shingle roof in normal daylight view"
-              thermalAlt="Aerial thermal image of the same roof showing warm areas that may indicate heat loss"
-              caption="Roof heat loss and insulation irregularities — drag to compare normal and thermal views."
-            />
+          <Reveal className="mt-10 mx-auto max-w-3xl" delay={80}>
             <ThermalSlider
               normalSrc={fieldNormal}
               thermalSrc={fieldThermal}
               normalAlt="Aerial photo of a dark field at night in normal view"
               thermalAlt="Aerial thermal image of the same field showing several bright animal heat signatures"
-              caption="Wildlife and livestock heat signatures in a dark field."
+              caption="Wildlife and livestock heat signatures in a dark field — drag to compare."
             />
           </Reveal>
 
-          <Reveal className="mt-6" delay={120}>
-            <ThermalSlider
-              normalSrc={solarNormal}
-              thermalSrc={solarThermal}
-              normalAlt="Aerial photo of a ground-mounted solar array in daylight"
-              thermalAlt="Aerial thermal image of a solar array showing a bright hot cell among cooler panels"
-              caption="Solar arrays: unusual temperature patterns that may warrant further investigation."
-            />
-          </Reveal>
         </div>
       </section>
 
