@@ -14,53 +14,111 @@ export type InquiryPayload = {
 
 const TO = "Skyscanthermalllc@gmail.com";
 const SUBJECT = "NEW SKYSCAN THERMAL SOLUTIONS WEBSITE INQUIRY";
+const GATEWAY_URL = "https://connector-gateway.lovable.dev/google_mail/gmail/v1";
 
-function base64ToBlob(base64: string) {
-  const bin = atob(base64);
-  const bytes = new Uint8Array(bin.length);
-  for (let i = 0; i < bin.length; i += 1) bytes[i] = bin.charCodeAt(i);
-  return new Blob([bytes]);
+function encodeUtf8(value: string) {
+  const bytes = new TextEncoder().encode(value);
+  let binary = "";
+  for (const byte of bytes) binary += String.fromCharCode(byte);
+  return btoa(binary);
 }
 
-/**
- * Sends the inquiry straight to the owner's inbox via FormSubmit.
- * No API keys, no domain verification — the first submission triggers a
- * one-time confirmation email to TO; clicking the link activates delivery.
- */
+function cleanHeader(value: string) {
+  return value.replace(/[\r\n]/g, " ").trim();
+}
+
+function wrapBase64(value: string) {
+  return value.match(/.{1,76}/g)?.join("\r\n") ?? "";
+}
+
+function attachmentType(filename: string) {
+  const extension = filename.toLowerCase().split(".").pop();
+  if (extension === "png") return "image/png";
+  if (extension === "gif") return "image/gif";
+  if (extension === "webp") return "image/webp";
+  if (extension === "heic") return "image/heic";
+  return "image/jpeg";
+}
+
+function createRawEmail(p: InquiryPayload) {
+  const boundary = `skyscan-${crypto.randomUUID()}`;
+  const lines = [
+    `To: ${TO}`,
+    `Reply-To: ${cleanHeader(p.email)}`,
+    `Subject: ${SUBJECT}`,
+    "MIME-Version: 1.0",
+    `Content-Type: multipart/mixed; boundary="${boundary}"`,
+    "",
+    `--${boundary}`,
+    'Content-Type: text/plain; charset="UTF-8"',
+    "Content-Transfer-Encoding: base64",
+    "",
+    wrapBase64(
+      encodeUtf8(
+        [
+          `Customer Name: ${p.name}`,
+          `Phone: ${p.phone}`,
+          `Email: ${p.email}`,
+          `Service Requested: ${p.service}`,
+          `Project Location: ${p.location}`,
+          `Preferred Contact Method: ${p.contactMethod}`,
+          p.preferredDate ? `Preferred Date: ${p.preferredDate}` : "",
+          p.preferredTime ? `Preferred Time: ${p.preferredTime}` : "",
+          "",
+          "Message:",
+          p.message,
+          p.additional ? `\nAdditional Details:\n${p.additional}` : "",
+        ]
+          .filter(Boolean)
+          .join("\n"),
+      ),
+    ),
+  ];
+
+  for (const attachment of p.attachments) {
+    const filename = cleanHeader(attachment.filename).replace(/["\\]/g, "_");
+    lines.push(
+      `--${boundary}`,
+      `Content-Type: ${attachmentType(filename)}; name="${filename}"`,
+      "Content-Transfer-Encoding: base64",
+      `Content-Disposition: attachment; filename="${filename}"`,
+      "",
+      wrapBase64(attachment.content),
+    );
+  }
+
+  lines.push(`--${boundary}--`, "");
+  return encodeUtf8(lines.join("\r\n"))
+    .replace(/\+/g, "-")
+    .replace(/\//g, "_")
+    .replace(/=+$/, "");
+}
+
 export async function sendInquiryEmail(p: InquiryPayload) {
-  const form = new FormData();
-  form.append("_subject", SUBJECT);
-  form.append("_captcha", "false");
-  form.append("_template", "table");
-  form.append("_replyto", p.email);
+  const lovableApiKey = process.env["LOVABLE_API_KEY"];
+  const gmailApiKey = process.env["GOOGLE_MAIL_API_KEY"];
 
-  form.append("Customer Name", p.name);
-  form.append("Phone", p.phone);
-  form.append("Email", p.email);
-  form.append("Service Requested", p.service);
-  form.append("Project Location", p.location);
-  form.append("Preferred Contact Method", p.contactMethod);
-  if (p.preferredDate) form.append("Preferred Date", p.preferredDate);
-  if (p.preferredTime) form.append("Preferred Time", p.preferredTime);
-  form.append("Message", p.message);
-  if (p.additional) form.append("Additional Details", p.additional);
-
-  p.attachments.forEach((a, i) => {
-    try {
-      form.append(`attachment${i + 1}`, base64ToBlob(a.content), a.filename);
-    } catch {
-      /* skip unreadable attachment */
-    }
-  });
+  if (!lovableApiKey || !gmailApiKey) {
+    console.error("Gmail connector credentials are not configured");
+    return {
+      ok: false as const,
+      error: "Email delivery is temporarily unavailable. Please call or text 989-285-7977.",
+    };
+  }
 
   try {
-    const response = await fetch(`https://formsubmit.co/${encodeURIComponent(TO)}`, {
+    const response = await fetch(`${GATEWAY_URL}/users/me/messages/send`, {
       method: "POST",
-      body: form,
+      headers: {
+        Authorization: `Bearer ${lovableApiKey}`,
+        "X-Connection-Api-Key": gmailApiKey,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ raw: createRawEmail(p) }),
     });
 
     if (!response.ok) {
-      console.error(`FormSubmit request failed [${response.status}]: ${await response.text()}`);
+      console.error(`Gmail request failed [${response.status}]: ${await response.text()}`);
       return {
         ok: false as const,
         error:
@@ -68,7 +126,7 @@ export async function sendInquiryEmail(p: InquiryPayload) {
       };
     }
   } catch (err) {
-    console.error("FormSubmit request threw", err);
+    console.error("Gmail request threw", err);
     return {
       ok: false as const,
       error:
