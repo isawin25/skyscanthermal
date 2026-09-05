@@ -1,9 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { UserRound, Image as ImageIcon } from "lucide-react";
+import { Image as ImageIcon } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { Reveal } from "@/components/site/Reveal";
 import { RecoveryCTA } from "@/components/site/RecoveryCTA";
 import { CallButton, GhostLink } from "@/components/site/CTAButtons";
+import portrait from "@/assets/photos/hoyt-portrait.jpg.asset.json";
+
 
 export const Route = createFileRoute("/founder")({
   head: () => ({
