@@ -31,15 +31,24 @@ export const Route = createFileRoute("/founder")({
 
 /** EDITABLE: replace each placeholder with Hoyt's own words. Nothing here is invented. */
 const bioBlocks = [
-  { h: "Background", p: "[Add Hoyt's background here.]" },
-  { h: "Why he started SkyScan", p: "[Add the story behind starting SkyScan Thermal Solutions.]" },
-  { h: "Experience with drones", p: "[Add drone flying experience here.]" },
-  { h: "Thermal imaging experience", p: "[Add thermal imaging experience here.]" },
-  { h: "Wildlife recovery experience", p: "[Add recovery experience here.]" },
-  { h: "Inspection experience", p: "[Add inspection experience here.]" },
-  { h: "Personal mission", p: "[Add Hoyt's mission statement here.]" },
-  { h: "Why customers should trust SkyScan", p: "[Add the trust statement here.]" },
+  {
+    h: "Why I started SkyScan",
+    p: "I started SkyScan because I've always been big into hunting, the outdoors, and drones. Once I saw what thermal drone technology was capable of, I realized I could use it to help people in ways that weren't possible from the ground.",
+  },
+  {
+    h: "Deer recovery",
+    p: "Deer recovery is a big part of what I do, and as a hunter myself, I know how much time and effort can go into one deer. When someone calls me after a shot, I treat that search like it was my own.",
+  },
+  {
+    h: "More than deer recovery",
+    p: "Whether I'm helping find a lost pet, providing thermal inspections, or using aerial technology to help a property owner or business, my goal is the same — use the equipment and experience I have to help people and get them the answers they need.",
+  },
+  {
+    h: "Why it's worth doing",
+    p: "I genuinely enjoy what I do, and I take pride in every job. Whether it ends with \"I found him,\" bringing someone's pet home, or solving a problem from the air, that's what makes it worth doing.",
+  },
 ];
+
 
 /** EDITABLE: add real completed work. Empty until supplied by the owner. */
 const workGallery: {
