@@ -5,6 +5,7 @@ import { PageHero } from "@/components/site/PageHero";
 import { Reveal } from "@/components/site/Reveal";
 import { RecoveryCTA } from "@/components/site/RecoveryCTA";
 import { ThermalSlider } from "@/components/site/ThermalSlider";
+import { PhotoGallery } from "@/components/site/PhotoGallery";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { PROJECTS, PROJECT_CATEGORIES, type Project } from "@/lib/site";
 import fieldNormal from "@/assets/field-normal.jpg";
@@ -50,7 +51,21 @@ function OurWorkPage() {
         intro="Completed flights, thermal imagery, and outcomes. Project slots below are placeholders until real project details and imagery are added."
       />
 
+      <section className="mx-auto max-w-[80rem] px-4 pt-14 md:px-8 md:pt-20">
+        <Reveal>
+          <span className="hud-label text-primary">Field Gallery</span>
+          <h2 className="h-section mt-4">From The Field</h2>
+          <p className="mt-4 max-w-2xl text-muted-foreground">
+            Photos from real flights across Michigan — tap any image to enlarge.
+          </p>
+        </Reveal>
+        <div className="mt-10">
+          <PhotoGallery />
+        </div>
+      </section>
+
       <section className="mx-auto max-w-[80rem] px-4 py-14 md:px-8 md:py-20">
+
         <div className="flex flex-wrap gap-2" role="group" aria-label="Filter projects by category">
           {PROJECT_CATEGORIES.map((c) => (
             <button

@@ -16,6 +16,7 @@ import {
 import { DroneScroll } from "@/components/site/DroneScroll";
 import { Reveal } from "@/components/site/Reveal";
 import { ThermalSlider } from "@/components/site/ThermalSlider";
+import { PhotoGallery } from "@/components/site/PhotoGallery";
 import { RecoveryCTA } from "@/components/site/RecoveryCTA";
 import { CallButton, GhostLink } from "@/components/site/CTAButtons";
 import { SERVICES } from "@/lib/site";
@@ -243,7 +244,24 @@ function HomePage() {
         </div>
       </section>
 
+      {/* FIELD GALLERY */}
+      <section className="relative border-b border-border">
+        <div className="relative z-40 mx-auto max-w-[80rem] px-4 py-20 md:px-8 md:py-28">
+          <Reveal className="flex flex-wrap items-end justify-between gap-6">
+            <div>
+              <span className="hud-label text-primary">Field Gallery</span>
+              <h2 className="h-section mt-4">From The Field</h2>
+            </div>
+            <GhostLink to="/our-work">See All Photos</GhostLink>
+          </Reveal>
+          <div className="mt-10">
+            <PhotoGallery limit={6} />
+          </div>
+        </div>
+      </section>
+
       <RecoveryCTA />
+
     </>
   );
 }
