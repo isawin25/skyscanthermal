@@ -71,18 +71,18 @@ function FounderPage() {
 
       <section className="mx-auto grid max-w-[80rem] gap-10 px-4 py-16 md:px-8 md:py-24 lg:grid-cols-[0.85fr_1.15fr]">
         <Reveal>
-          <div className="panel relative flex aspect-[4/5] items-center justify-center overflow-hidden">
-            <div className="absolute inset-0 tech-grid opacity-60" aria-hidden="true" />
-            <div className="relative flex flex-col items-center gap-3 p-8 text-center">
-              <UserRound className="size-16 text-primary" aria-hidden="true" />
-              <span className="font-display text-2xl uppercase">Hoyt Munro</span>
-              <span className="hud-label">Portrait placeholder</span>
-              <p className="max-w-xs text-xs text-muted-foreground">
-                Add a professional portrait to <code className="font-mono">src/assets</code> and import
-                it here to replace this placeholder.
-              </p>
-            </div>
-          </div>
+          <figure className="panel relative aspect-[4/5] overflow-hidden">
+            <img
+              src={portrait.url}
+              alt="Hoyt Munro, founder and owner of SkyScan Thermal Solutions, in the field"
+              loading="lazy"
+              className="size-full object-cover"
+            />
+            <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/90 to-transparent p-4">
+              <span className="font-display text-xl uppercase">Hoyt Munro</span>
+              <span className="hud-label block text-primary">Founder &amp; Owner</span>
+            </figcaption>
+          </figure>
         </Reveal>
 
         <div>
@@ -90,11 +90,10 @@ function FounderPage() {
             <h2 className="h-section">Hoyt Munro</h2>
             <p className="hud-label mt-2 text-primary">Founder &amp; Owner — SkyScan Thermal Solutions</p>
             <p className="mt-5 text-muted-foreground">
-              This biography is intentionally left as editable placeholders. Nothing about Hoyt&apos;s
-              experience, certifications, or history has been written for him — each section below is a
-              slot for his own words.
+              My name is Hoyt Munro, and I&apos;m the owner of SkyScan Thermal Solutions.
             </p>
           </Reveal>
+
 
           <div className="mt-8 grid gap-px border border-border bg-border sm:grid-cols-2">
             {bioBlocks.map((b, i) => (
