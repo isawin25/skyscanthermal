@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { Facebook, Instagram, Youtube, Radar, Mail, Phone } from "lucide-react";
+import { Facebook, Instagram, Youtube, Mail, Phone } from "lucide-react";
+import { LOGO_THUMB_URL } from "@/lib/photos";
 import {
   COMPANY,
   EMAIL,
@@ -23,11 +24,14 @@ export function Footer() {
       <div className="mx-auto grid max-w-[110rem] gap-10 px-4 py-14 md:grid-cols-2 md:px-8 lg:grid-cols-4">
         <div>
           <div className="flex items-center gap-2.5">
-            <span className="flex size-9 items-center justify-center border border-primary/60 bg-primary/10">
-              <Radar className="size-5 text-primary" aria-hidden="true" />
-            </span>
+            <img
+              src={LOGO_THUMB_URL}
+              alt="SkyScan Thermal Solutions logo"
+              className="size-10 border border-primary/40 object-cover"
+            />
             <span className="font-display text-xl font-bold uppercase">SkyScan</span>
           </div>
+
           <p className="mt-4 max-w-xs text-sm text-muted-foreground">{TAGLINE}</p>
           <a
             href={PHONE_TEL}
