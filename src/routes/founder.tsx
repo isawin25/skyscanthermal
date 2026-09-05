@@ -104,6 +104,13 @@ function FounderPage() {
             ))}
           </div>
 
+          <Reveal className="mt-6">
+            <p className="font-display text-lg uppercase tracking-widest">— Hoyt Munro</p>
+            <p className="text-sm text-muted-foreground">Owner, SkyScan Thermal Solutions</p>
+          </Reveal>
+
+
+
           <Reveal className="mt-8 flex flex-col gap-3 sm:flex-row">
             <CallButton />
             <GhostLink to="/contact">Send a Request</GhostLink>
