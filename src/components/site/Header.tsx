@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Menu, X, Phone, Radar } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
+import { LOGO_THUMB_URL } from "@/lib/photos";
 import { NAV, PHONE_DISPLAY, PHONE_TEL } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -34,9 +35,12 @@ export function Header() {
     >
       <div className="mx-auto flex max-w-[110rem] items-center justify-between gap-4 px-4 py-3 md:px-8">
         <Link to="/" className="flex items-center gap-2.5" aria-label="SkyScan Thermal Solutions home">
-          <span className="flex size-9 items-center justify-center border border-primary/60 bg-primary/10">
-            <Radar className="size-5 text-primary" aria-hidden="true" />
-          </span>
+          <img
+            src={LOGO_THUMB_URL}
+            alt="SkyScan Thermal Solutions logo"
+            className="size-10 border border-primary/40 object-cover"
+          />
+
           <span className="leading-none">
             <span className="block font-display text-lg font-bold uppercase tracking-wide md:text-xl">
               SkyScan
