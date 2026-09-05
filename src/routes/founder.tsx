@@ -1,9 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { UserRound, Image as ImageIcon } from "lucide-react";
+import { Image as ImageIcon } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { Reveal } from "@/components/site/Reveal";
 import { RecoveryCTA } from "@/components/site/RecoveryCTA";
 import { CallButton, GhostLink } from "@/components/site/CTAButtons";
+import portrait from "@/assets/photos/hoyt-portrait.jpg.asset.json";
+
 
 export const Route = createFileRoute("/founder")({
   head: () => ({
@@ -29,15 +31,24 @@ export const Route = createFileRoute("/founder")({
 
 /** EDITABLE: replace each placeholder with Hoyt's own words. Nothing here is invented. */
 const bioBlocks = [
-  { h: "Background", p: "[Add Hoyt's background here.]" },
-  { h: "Why he started SkyScan", p: "[Add the story behind starting SkyScan Thermal Solutions.]" },
-  { h: "Experience with drones", p: "[Add drone flying experience here.]" },
-  { h: "Thermal imaging experience", p: "[Add thermal imaging experience here.]" },
-  { h: "Wildlife recovery experience", p: "[Add recovery experience here.]" },
-  { h: "Inspection experience", p: "[Add inspection experience here.]" },
-  { h: "Personal mission", p: "[Add Hoyt's mission statement here.]" },
-  { h: "Why customers should trust SkyScan", p: "[Add the trust statement here.]" },
+  {
+    h: "Why I started SkyScan",
+    p: "I started SkyScan because I've always been big into hunting, the outdoors, and drones. Once I saw what thermal drone technology was capable of, I realized I could use it to help people in ways that weren't possible from the ground.",
+  },
+  {
+    h: "Deer recovery",
+    p: "Deer recovery is a big part of what I do, and as a hunter myself, I know how much time and effort can go into one deer. When someone calls me after a shot, I treat that search like it was my own.",
+  },
+  {
+    h: "More than deer recovery",
+    p: "Whether I'm helping find a lost pet, providing thermal inspections, or using aerial technology to help a property owner or business, my goal is the same — use the equipment and experience I have to help people and get them the answers they need.",
+  },
+  {
+    h: "Why it's worth doing",
+    p: "I genuinely enjoy what I do, and I take pride in every job. Whether it ends with \"I found him,\" bringing someone's pet home, or solving a problem from the air, that's what makes it worth doing.",
+  },
 ];
+
 
 /** EDITABLE: add real completed work. Empty until supplied by the owner. */
 const workGallery: {
@@ -60,18 +71,18 @@ function FounderPage() {
 
       <section className="mx-auto grid max-w-[80rem] gap-10 px-4 py-16 md:px-8 md:py-24 lg:grid-cols-[0.85fr_1.15fr]">
         <Reveal>
-          <div className="panel relative flex aspect-[4/5] items-center justify-center overflow-hidden">
-            <div className="absolute inset-0 tech-grid opacity-60" aria-hidden="true" />
-            <div className="relative flex flex-col items-center gap-3 p-8 text-center">
-              <UserRound className="size-16 text-primary" aria-hidden="true" />
-              <span className="font-display text-2xl uppercase">Hoyt Munro</span>
-              <span className="hud-label">Portrait placeholder</span>
-              <p className="max-w-xs text-xs text-muted-foreground">
-                Add a professional portrait to <code className="font-mono">src/assets</code> and import
-                it here to replace this placeholder.
-              </p>
-            </div>
-          </div>
+          <figure className="panel relative aspect-[4/5] overflow-hidden">
+            <img
+              src={portrait.url}
+              alt="Hoyt Munro, founder and owner of SkyScan Thermal Solutions, in the field"
+              loading="lazy"
+              className="size-full object-cover"
+            />
+            <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/90 to-transparent p-4">
+              <span className="font-display text-xl uppercase">Hoyt Munro</span>
+              <span className="hud-label block text-primary">Founder &amp; Owner</span>
+            </figcaption>
+          </figure>
         </Reveal>
 
         <div>
@@ -79,11 +90,10 @@ function FounderPage() {
             <h2 className="h-section">Hoyt Munro</h2>
             <p className="hud-label mt-2 text-primary">Founder &amp; Owner — SkyScan Thermal Solutions</p>
             <p className="mt-5 text-muted-foreground">
-              This biography is intentionally left as editable placeholders. Nothing about Hoyt&apos;s
-              experience, certifications, or history has been written for him — each section below is a
-              slot for his own words.
+              My name is Hoyt Munro, and I&apos;m the owner of SkyScan Thermal Solutions.
             </p>
           </Reveal>
+
 
           <div className="mt-8 grid gap-px border border-border bg-border sm:grid-cols-2">
             {bioBlocks.map((b, i) => (
@@ -93,6 +103,13 @@ function FounderPage() {
               </Reveal>
             ))}
           </div>
+
+          <Reveal className="mt-6">
+            <p className="font-display text-lg uppercase tracking-widest">— Hoyt Munro</p>
+            <p className="text-sm text-muted-foreground">Owner, SkyScan Thermal Solutions</p>
+          </Reveal>
+
+
 
           <Reveal className="mt-8 flex flex-col gap-3 sm:flex-row">
             <CallButton />
