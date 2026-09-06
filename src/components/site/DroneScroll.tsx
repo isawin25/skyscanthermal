@@ -82,11 +82,13 @@ export function DroneScroll() {
         const px = (f.x / 100) * window.innerWidth;
         const py = (f.y / 100) * window.innerHeight;
         el.style.transform = `translate3d(${px}px, ${py}px, 0) translate(-50%, -50%) rotate(${f.r}deg) scale(${f.s})`;
+        el.style.opacity = String(1 - Math.min(0.35, p * 0.5));
       }
       const beam = beamRef.current;
       if (beam) {
-        beam.style.opacity = p > 0.08 ? "1" : "0";
+        beam.style.opacity = String(Math.max(0, 0.9 - p * 4));
       }
+
 
       let next = STATUS[0]!.text;
       for (const s of STATUS) if (p >= s.p) next = s.text;
