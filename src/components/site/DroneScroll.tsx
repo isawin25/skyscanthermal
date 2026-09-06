@@ -114,13 +114,13 @@ export function DroneScroll() {
 
   if (reduced) {
     return (
-      <div className="pointer-events-none fixed inset-0 z-30 hidden md:block" aria-hidden="true">
+      <div className="pointer-events-none absolute inset-x-0 top-24 z-30 flex justify-center" aria-hidden="true">
         <img
           src={droneImg}
           alt=""
           width={1024}
           height={768}
-          className="absolute right-[6%] top-1/3 w-[26vw] max-w-[420px] opacity-90 drop-shadow-2xl"
+          className="w-[62vw] max-w-[420px] opacity-90 drop-shadow-2xl"
         />
       </div>
     );
@@ -132,20 +132,19 @@ export function DroneScroll() {
         <div className="relative anim-bob">
           <div
             ref={beamRef}
-            className="absolute left-1/2 top-[62%] h-[70vh] w-[36vw] max-w-[520px] -translate-x-1/2 opacity-0 transition-opacity duration-500"
+            className="absolute left-1/2 top-[62%] h-[60vh] w-[34vw] max-w-[480px] -translate-x-1/2 opacity-0"
             style={{
               background:
-                "linear-gradient(to bottom, color-mix(in oklab, var(--heat) 30%, transparent), transparent 70%)",
+                "linear-gradient(to bottom, color-mix(in oklab, var(--heat) 26%, transparent), transparent 72%)",
               clipPath: "polygon(44% 0%, 56% 0%, 100% 100%, 0% 100%)",
             }}
           />
-          <div className="absolute left-1/2 top-[62%] h-[70vh] w-[36vw] max-w-[520px] -translate-x-1/2 scan-lines opacity-40" />
           <img
             src={droneImg}
             alt=""
             width={1024}
             height={768}
-            className="relative w-[34vw] max-w-[440px] min-w-[180px] drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
+            className="relative w-[46vw] max-w-[420px] min-w-[150px] drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)] md:w-[30vw]"
           />
         </div>
       </div>
@@ -156,4 +155,5 @@ export function DroneScroll() {
       </div>
     </div>
   );
+
 }
