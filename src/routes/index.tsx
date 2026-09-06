@@ -100,7 +100,10 @@ function HomePage() {
           aria-hidden="true"
         />
         <div className="relative z-40 mx-auto max-w-[80rem] px-4 pb-20 md:px-8">
+          {/* open airspace reserved for the drone animation */}
+          <div className="h-[30svh] md:h-[34svh]" aria-hidden="true" />
           <div className="max-w-2xl">
+
             <span className="hud-label inline-flex items-center gap-2 border border-primary/40 bg-primary/10 px-3 py-1.5 text-primary">
               <span className="size-1.5 animate-pulse rounded-full bg-primary" />
               Thermal Sensor · Live Scan
