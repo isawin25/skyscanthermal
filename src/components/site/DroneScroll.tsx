@@ -5,33 +5,25 @@ type Frame = { p: number; x: number; y: number; s: number; r: number };
 
 // x / y are percentages of viewport width / height (centre of the drone).
 const DESKTOP: Frame[] = [
-  { p: 0.0, x: 68, y: 46, s: 1.0, r: -4 },
-  { p: 0.14, x: 30, y: 58, s: 0.82, r: 5 },
-  { p: 0.3, x: 72, y: 40, s: 0.7, r: -6 },
-  { p: 0.46, x: 28, y: 34, s: 0.62, r: 4 },
-  { p: 0.62, x: 70, y: 56, s: 0.72, r: -3 },
-  { p: 0.8, x: 38, y: 42, s: 0.66, r: 6 },
-  { p: 1.0, x: 55, y: 30, s: 0.9, r: 0 },
+  { p: 0.0, x: 50, y: 32, s: 1.0, r: 0 },
+  { p: 0.18, x: 62, y: 26, s: 0.72, r: -3 },
+  { p: 0.45, x: 74, y: 21, s: 0.48, r: 3 },
+  { p: 1.0, x: 87, y: 17, s: 0.3, r: 0 },
 ];
 
 const MOBILE: Frame[] = [
-  { p: 0.0, x: 62, y: 40, s: 0.72, r: -4 },
-  { p: 0.2, x: 30, y: 62, s: 0.55, r: 5 },
-  { p: 0.4, x: 70, y: 30, s: 0.5, r: -5 },
-  { p: 0.6, x: 28, y: 66, s: 0.5, r: 4 },
-  { p: 0.8, x: 68, y: 34, s: 0.52, r: -3 },
-  { p: 1.0, x: 50, y: 24, s: 0.62, r: 0 },
+  { p: 0.0, x: 50, y: 30, s: 0.66, r: 0 },
+  { p: 0.2, x: 62, y: 23, s: 0.46, r: -3 },
+  { p: 1.0, x: 82, y: 16, s: 0.24, r: 0 },
 ];
 
 const STATUS = [
   { p: 0.0, text: "AIRBORNE · GPS LOCK" },
-  { p: 0.14, text: "THERMAL SENSOR · LIVE SCAN" },
-  { p: 0.32, text: "HEAT SIGNATURE DETECTED" },
-  { p: 0.5, text: "SURFACE SCAN · ROOFLINE" },
-  { p: 0.66, text: "ARRAY SWEEP · TEMP DELTA" },
-  { p: 0.82, text: "MULTIPLE SIGNATURES · FIELD" },
-  { p: 0.94, text: "SCAN COMPLETE" },
+  { p: 0.2, text: "THERMAL SENSOR · LIVE SCAN" },
+  { p: 0.5, text: "SURFACE SCAN · TEMP DELTA" },
+  { p: 0.85, text: "SCAN COMPLETE" },
 ];
+
 
 function lerp(a: number, b: number, t: number) {
   return a + (b - a) * t;
