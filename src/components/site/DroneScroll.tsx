@@ -13,8 +13,8 @@ const DESKTOP: Frame[] = [
 
 const MOBILE: Frame[] = [
   { p: 0.0, x: 50, y: 30, s: 0.66, r: 0 },
-  { p: 0.2, x: 62, y: 23, s: 0.46, r: -3 },
-  { p: 1.0, x: 82, y: 16, s: 0.24, r: 0 },
+  { p: 0.2, x: 62, y: 24, s: 0.5, r: -3 },
+  { p: 1.0, x: 76, y: 20, s: 0.36, r: 0 },
 ];
 
 const STATUS = [
