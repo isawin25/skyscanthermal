@@ -132,7 +132,7 @@ export function DroneScroll() {
         <div className="relative anim-bob">
           <div
             ref={beamRef}
-            className="absolute left-1/2 top-[62%] h-[60vh] w-[34vw] max-w-[480px] -translate-x-1/2 opacity-0"
+            className="absolute left-1/2 top-[62%] h-[36vh] w-[26vw] max-w-[340px] -translate-x-1/2 opacity-0"
             style={{
               background:
                 "linear-gradient(to bottom, color-mix(in oklab, var(--heat) 26%, transparent), transparent 72%)",
@@ -149,7 +149,7 @@ export function DroneScroll() {
         </div>
       </div>
 
-      <div className="absolute bottom-24 left-4 hidden items-center gap-2 border border-border bg-background/70 px-3 py-2 backdrop-blur md:flex">
+      <div className="absolute bottom-24 right-4 hidden items-center gap-2 border border-border bg-background/70 px-3 py-2 backdrop-blur md:flex">
         <span className="size-2 animate-pulse rounded-full bg-primary" />
         <span className="hud-label text-foreground">{status}</span>
       </div>
