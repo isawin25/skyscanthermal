@@ -121,7 +121,7 @@ export function DroneScroll() {
           alt=""
           width={1024}
           height={768}
-          className="w-[62vw] max-w-[420px] opacity-90 drop-shadow-2xl"
+          className="w-[76vw] max-w-[560px] opacity-90 drop-shadow-2xl"
         />
       </div>
     );
@@ -145,15 +145,11 @@ export function DroneScroll() {
             alt=""
             width={1024}
             height={768}
-            className="relative w-[46vw] max-w-[420px] min-w-[150px] drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)] md:w-[30vw]"
+            className="relative w-[56vw] max-w-[560px] min-w-[180px] drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)] md:w-[36vw]"
           />
         </div>
       </div>
 
-      <div className="absolute bottom-24 right-4 hidden items-center gap-2 border border-border bg-background/70 px-3 py-2 backdrop-blur md:flex">
-        <span className="size-2 animate-pulse rounded-full bg-primary" />
-        <span className="hud-label text-foreground">{status}</span>
-      </div>
     </div>
   );
 
