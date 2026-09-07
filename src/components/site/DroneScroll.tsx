@@ -5,17 +5,18 @@ type Frame = { p: number; x: number; y: number; s: number; r: number };
 
 // x / y are percentages of viewport width / height (centre of the drone).
 const DESKTOP: Frame[] = [
-  { p: 0.0, x: 50, y: 32, s: 1.0, r: 0 },
-  { p: 0.18, x: 62, y: 26, s: 0.72, r: -3 },
-  { p: 0.45, x: 74, y: 21, s: 0.48, r: 3 },
-  { p: 1.0, x: 87, y: 17, s: 0.3, r: 0 },
+  { p: 0.0, x: 50, y: 34, s: 1.35, r: 0 },
+  { p: 0.18, x: 62, y: 27, s: 1.0, r: -3 },
+  { p: 0.45, x: 74, y: 21, s: 0.66, r: 3 },
+  { p: 1.0, x: 87, y: 17, s: 0.4, r: 0 },
 ];
 
 const MOBILE: Frame[] = [
-  { p: 0.0, x: 50, y: 30, s: 0.66, r: 0 },
-  { p: 0.2, x: 62, y: 24, s: 0.5, r: -3 },
-  { p: 1.0, x: 76, y: 20, s: 0.36, r: 0 },
+  { p: 0.0, x: 50, y: 31, s: 1.0, r: 0 },
+  { p: 0.2, x: 62, y: 25, s: 0.72, r: -3 },
+  { p: 1.0, x: 76, y: 20, s: 0.48, r: 0 },
 ];
+
 
 const STATUS = [
   { p: 0.0, text: "AIRBORNE · GPS LOCK" },
