@@ -49,7 +49,7 @@ export function DroneScroll() {
   const droneRef = useRef<HTMLDivElement>(null);
   const beamRef = useRef<HTMLDivElement>(null);
   const [reduced, setReduced] = useState(false);
-  const [reduced, setReduced] = useState(false);
+
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
