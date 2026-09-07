@@ -5,24 +5,19 @@ type Frame = { p: number; x: number; y: number; s: number; r: number };
 
 // x / y are percentages of viewport width / height (centre of the drone).
 const DESKTOP: Frame[] = [
-  { p: 0.0, x: 50, y: 32, s: 1.0, r: 0 },
-  { p: 0.18, x: 62, y: 26, s: 0.72, r: -3 },
-  { p: 0.45, x: 74, y: 21, s: 0.48, r: 3 },
-  { p: 1.0, x: 87, y: 17, s: 0.3, r: 0 },
+  { p: 0.0, x: 50, y: 34, s: 1.35, r: 0 },
+  { p: 0.18, x: 62, y: 27, s: 1.0, r: -3 },
+  { p: 0.45, x: 74, y: 21, s: 0.66, r: 3 },
+  { p: 1.0, x: 87, y: 17, s: 0.4, r: 0 },
 ];
 
 const MOBILE: Frame[] = [
-  { p: 0.0, x: 50, y: 30, s: 0.66, r: 0 },
-  { p: 0.2, x: 62, y: 24, s: 0.5, r: -3 },
-  { p: 1.0, x: 76, y: 20, s: 0.36, r: 0 },
+  { p: 0.0, x: 50, y: 31, s: 1.0, r: 0 },
+  { p: 0.2, x: 62, y: 25, s: 0.72, r: -3 },
+  { p: 1.0, x: 76, y: 20, s: 0.48, r: 0 },
 ];
 
-const STATUS = [
-  { p: 0.0, text: "AIRBORNE · GPS LOCK" },
-  { p: 0.2, text: "THERMAL SENSOR · LIVE SCAN" },
-  { p: 0.5, text: "SURFACE SCAN · TEMP DELTA" },
-  { p: 0.85, text: "SCAN COMPLETE" },
-];
+
 
 
 function lerp(a: number, b: number, t: number) {
@@ -53,8 +48,8 @@ function sample(frames: Frame[], p: number): Frame {
 export function DroneScroll() {
   const droneRef = useRef<HTMLDivElement>(null);
   const beamRef = useRef<HTMLDivElement>(null);
-  const [status, setStatus] = useState(STATUS[0]!.text);
   const [reduced, setReduced] = useState(false);
+
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -67,7 +62,7 @@ export function DroneScroll() {
   useEffect(() => {
     if (reduced) return;
     let raf = 0;
-    let lastStatus = "";
+
 
     const apply = () => {
       raf = 0;
@@ -88,15 +83,8 @@ export function DroneScroll() {
       if (beam) {
         beam.style.opacity = String(Math.max(0, 0.9 - p * 4));
       }
-
-
-      let next = STATUS[0]!.text;
-      for (const s of STATUS) if (p >= s.p) next = s.text;
-      if (next !== lastStatus) {
-        lastStatus = next;
-        setStatus(next);
-      }
     };
+
 
     const onScroll = () => {
       if (!raf) raf = requestAnimationFrame(apply);
@@ -120,7 +108,7 @@ export function DroneScroll() {
           alt=""
           width={1024}
           height={768}
-          className="w-[62vw] max-w-[420px] opacity-90 drop-shadow-2xl"
+          className="w-[76vw] max-w-[560px] opacity-90 drop-shadow-2xl"
         />
       </div>
     );
@@ -144,15 +132,11 @@ export function DroneScroll() {
             alt=""
             width={1024}
             height={768}
-            className="relative w-[46vw] max-w-[420px] min-w-[150px] drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)] md:w-[30vw]"
+            className="relative w-[56vw] max-w-[560px] min-w-[180px] drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)] md:w-[36vw]"
           />
         </div>
       </div>
 
-      <div className="absolute bottom-24 right-4 hidden items-center gap-2 border border-border bg-background/70 px-3 py-2 backdrop-blur md:flex">
-        <span className="size-2 animate-pulse rounded-full bg-primary" />
-        <span className="hud-label text-foreground">{status}</span>
-      </div>
     </div>
   );
 
