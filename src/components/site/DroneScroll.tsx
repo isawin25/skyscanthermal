@@ -18,12 +18,6 @@ const MOBILE: Frame[] = [
 ];
 
 
-const STATUS = [
-  { p: 0.0, text: "AIRBORNE · GPS LOCK" },
-  { p: 0.2, text: "THERMAL SENSOR · LIVE SCAN" },
-  { p: 0.5, text: "SURFACE SCAN · TEMP DELTA" },
-  { p: 0.85, text: "SCAN COMPLETE" },
-];
 
 
 function lerp(a: number, b: number, t: number) {
@@ -54,7 +48,7 @@ function sample(frames: Frame[], p: number): Frame {
 export function DroneScroll() {
   const droneRef = useRef<HTMLDivElement>(null);
   const beamRef = useRef<HTMLDivElement>(null);
-  const [status, setStatus] = useState(STATUS[0]!.text);
+  const [reduced, setReduced] = useState(false);
   const [reduced, setReduced] = useState(false);
 
   useEffect(() => {
@@ -68,7 +62,7 @@ export function DroneScroll() {
   useEffect(() => {
     if (reduced) return;
     let raf = 0;
-    let lastStatus = "";
+
 
     const apply = () => {
       raf = 0;
@@ -89,15 +83,8 @@ export function DroneScroll() {
       if (beam) {
         beam.style.opacity = String(Math.max(0, 0.9 - p * 4));
       }
-
-
-      let next = STATUS[0]!.text;
-      for (const s of STATUS) if (p >= s.p) next = s.text;
-      if (next !== lastStatus) {
-        lastStatus = next;
-        setStatus(next);
-      }
     };
+
 
     const onScroll = () => {
       if (!raf) raf = requestAnimationFrame(apply);
