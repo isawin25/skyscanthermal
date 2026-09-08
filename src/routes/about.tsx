@@ -77,7 +77,6 @@ function AboutPage() {
               className="size-full object-cover"
             />
             <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/90 to-transparent p-4">
-              <span className="font-display text-xl uppercase">Hoyt Munro</span>
               <span className="hud-label block text-primary">Founder &amp; Owner</span>
             </figcaption>
           </figure>
@@ -86,9 +85,8 @@ function AboutPage() {
         <div>
           <Reveal>
             <h2 className="h-section">Hoyt Munro</h2>
-            <p className="hud-label mt-2 text-primary">Founder &amp; Owner</p>
             <p className="mt-5 text-muted-foreground">
-              My name is Hoyt Munro, and I&apos;m the owner of SkyScan Thermal Solutions.
+              Owner of SkyScan Thermal Solutions.
             </p>
           </Reveal>
 
