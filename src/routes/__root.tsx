@@ -81,11 +81,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "SkyScan Thermal Solutions | Thermal Drone Services in Michigan" },
+      { title: "SkyScan Thermal Solutions | Thermal Drone Services in Ohio" },
       {
         name: "description",
         content:
-          "Thermal drone services for deer recovery, wildlife and livestock tracking, solar, roofing and building inspections across Michigan. FAA Part 107, insured, 24/7 recovery response.",
+          "Thermal drone services for deer recovery, wildlife and livestock tracking, solar, roofing and building inspections across Ohio. FAA Part 107, insured, 24/7 recovery response.",
       },
       { name: "author", content: "SkyScan Thermal Solutions" },
       { property: "og:site_name", content: "SkyScan Thermal Solutions" },
@@ -114,7 +114,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             "Thermal drone services for recovery and inspection: deer recovery, wildlife and livestock tracking, solar panel, roofing and building thermal inspections.",
           telephone: "+1-989-285-7977",
           email: "Skyscanthermalllc@gmail.com",
-          areaServed: { "@type": "State", name: "Michigan" },
+          areaServed: { "@type": "State", name: "Ohio" },
           founder: { "@type": "Person", name: "Hoyt Munro" },
         }),
       },

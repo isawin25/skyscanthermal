@@ -9,11 +9,11 @@ import portrait from "@/assets/photos/hoyt-portrait.jpg.asset.json";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About SkyScan Thermal Solutions | Hoyt Munro, Michigan" },
+      { title: "About SkyScan Thermal Solutions | Hoyt Munro, Ohio" },
       {
         name: "description",
         content:
-          "Meet Hoyt Munro, founder of SkyScan Thermal Solutions — aerial thermal imaging across Michigan for deer recovery, property, solar, roofing and livestock work. FAA Part 107 and insured.",
+          "Meet Hoyt Munro, founder of SkyScan Thermal Solutions — aerial thermal imaging across Ohio for deer recovery, property, solar, roofing and livestock work. FAA Part 107 and insured.",
       },
       { property: "og:title", content: "About SkyScan Thermal Solutions" },
       {
@@ -64,7 +64,7 @@ function AboutPage() {
       <PageHero
         eyebrow="About"
         title="Thermal Technology. Aerial Perspective. Real-World Results."
-        intro="A Michigan thermal drone operation built for recovery calls at 2 a.m. and inspection work at 2 p.m."
+        intro="A Ohio thermal drone operation built for recovery calls at 2 a.m. and inspection work at 2 p.m."
       />
 
       <section className="mx-auto grid max-w-[80rem] gap-10 px-4 py-16 md:px-8 md:py-24 lg:grid-cols-[0.85fr_1.15fr]">

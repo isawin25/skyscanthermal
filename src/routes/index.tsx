@@ -26,7 +26,7 @@ import fieldThermal from "@/assets/field-thermal.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Thermal Drone Services in Michigan | SkyScan Thermal Solutions" },
+      { title: "Thermal Drone Services in Ohio | SkyScan Thermal Solutions" },
       {
         name: "description",
         content:
@@ -36,7 +36,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "See what others can't. Thermal drone recovery and inspection services across Michigan. Call or text 989-285-7977.",
+          "See what others can't. Thermal drone recovery and inspection services across Ohio. Call or text 989-285-7977.",
       },
       { property: "og:url", content: "/" },
       { property: "og:type", content: "website" },

@@ -9,16 +9,16 @@ import { SERVICE_AREAS } from "@/lib/site";
 export const Route = createFileRoute("/service-areas")({
   head: () => ({
     meta: [
-      { title: "Service Areas | Thermal Drone Services in Michigan" },
+      { title: "Service Areas | Thermal Drone Services in Ohio" },
       {
         name: "description",
         content:
-          "SkyScan Thermal Solutions operates thermal drone recovery and inspection services in Michigan. Don't see your location? Contact us to check availability.",
+          "SkyScan Thermal Solutions operates thermal drone recovery and inspection services in Ohio. Don't see your location? Contact us to check availability.",
       },
       { property: "og:title", content: "Service Areas | SkyScan Thermal Solutions" },
       {
         property: "og:description",
-        content: "Thermal drone coverage across Michigan. Check availability for your location.",
+        content: "Thermal drone coverage across Ohio. Check availability for your location.",
       },
       { property: "og:url", content: "/service-areas" },
       { property: "og:type", content: "website" },
@@ -34,19 +34,19 @@ function ServiceAreasPage() {
       <PageHero
         eyebrow="Coverage"
         title="Service Areas"
-        intro="SkyScan Thermal Solutions is based in and operates across Michigan. Travel for a given project depends on distance, conditions, and flight requirements."
+        intro="SkyScan Thermal Solutions is based in and operates across Ohio. Travel for a given project depends on distance, conditions, and flight requirements."
       />
 
       <section className="mx-auto grid max-w-[80rem] gap-10 px-4 py-16 md:px-8 md:py-24 lg:grid-cols-[1.1fr_0.9fr]">
         <Reveal className="panel relative overflow-hidden p-4 md:p-6">
           <div className="absolute inset-0 tech-grid opacity-60" aria-hidden="true" />
-          <div className="hud-label relative mb-3 text-primary">Operating Region — Michigan</div>
+          <div className="hud-label relative mb-3 text-primary">Operating Region — Ohio</div>
           <div className="relative aspect-[4/5] w-full">
             <svg
               viewBox="0 0 100 125"
               className="size-full"
               role="img"
-              aria-label="Simplified map of Michigan showing SkyScan's operating region"
+              aria-label="Simplified map of Ohio showing SkyScan's operating region"
             >
               <defs>
                 <linearGradient id="mi" x1="0" y1="0" x2="1" y2="1">
@@ -54,20 +54,14 @@ function ServiceAreasPage() {
                   <stop offset="100%" stopColor="var(--heat)" stopOpacity="0.35" />
                 </linearGradient>
               </defs>
-              {/* Upper Peninsula */}
+              {/* Ohio outline */}
               <path
-                d="M6 40 L20 30 L36 28 L52 22 L64 26 L72 22 L78 28 L70 36 L56 40 L40 42 L24 46 L10 48 Z"
+                d="M20 30 L46 29 L60 22 L72 29 L80 38 L81 60 L79 84 L68 95 L58 103 L47 99 L36 101 L27 92 L23 70 Z"
                 fill="url(#mi)"
                 stroke="var(--heat)"
                 strokeWidth="0.6"
               />
-              {/* Lower Peninsula */}
-              <path
-                d="M42 50 L52 46 L62 48 L72 54 L78 66 L80 82 L74 98 L62 110 L50 114 L44 104 L40 92 L36 78 L34 62 Z"
-                fill="url(#mi)"
-                stroke="var(--heat)"
-                strokeWidth="0.6"
-              />
+
               {SERVICE_AREAS.map((a) => (
                 <g key={a.name}>
                   <circle cx={a.x} cy={a.y} r="2.4" fill="var(--heat)" className="anim-heat" />

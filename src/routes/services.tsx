@@ -16,7 +16,7 @@ export const Route = createFileRoute("/services")({
       {
         name: "description",
         content:
-          "Deer recovery, livestock tracking, herd counts, solar panel inspections, roof heat-loss scans and building thermal inspections by drone across Michigan.",
+          "Deer recovery, livestock tracking, herd counts, solar panel inspections, roof heat-loss scans and building thermal inspections by drone across Ohio.",
       },
       { property: "og:title", content: "Thermal Drone Services | SkyScan Thermal Solutions" },
       {
