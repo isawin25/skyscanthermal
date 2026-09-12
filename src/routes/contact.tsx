@@ -16,7 +16,7 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Request a thermal drone flight for recovery or inspection in Michigan. Call or text 989-285-7977, or send a request with your project details.",
+          "Request a thermal drone flight for recovery or inspection in Ohio. Call or text 989-285-7977, or send a request with your project details.",
       },
       { property: "og:title", content: "Contact SkyScan Thermal Solutions" },
       {

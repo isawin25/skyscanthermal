@@ -202,7 +202,7 @@ export const FAQS: { q: string; a: string }[] = [
   },
   {
     q: "What areas do you service?",
-    a: "SkyScan Thermal Solutions operates in Michigan. See the Service Areas page, and contact us if your location is not listed — we may still be able to help depending on the project and flight requirements.",
+    a: "SkyScan Thermal Solutions operates in Ohio. See the Service Areas page, and contact us if your location is not listed — we may still be able to help depending on the project and flight requirements.",
   },
   {
     q: "How quickly can you respond?",
@@ -212,7 +212,7 @@ export const FAQS: { q: string; a: string }[] = [
 
 /**
  * EDITABLE: service areas. Add or remove entries here.
- * `x` / `y` are percentage coordinates on the Michigan map graphic.
+ * `x` / `y` are percentage coordinates on the Ohio map graphic.
  */
 export type ServiceArea = { name: string; note?: string; x: number; y: number };
 export const SERVICE_AREAS: ServiceArea[] = [
@@ -254,7 +254,7 @@ export const PROJECTS: Project[] = [
     title: "Deer Recovery — Project Slot",
     category: "Deer Recovery",
     date: "—",
-    location: "Michigan",
+    location: "Ohio",
     service: "Deer Recovery",
     description:
       "Placeholder slot for a completed recovery. Add the date, general location, description, and imagery in src/lib/site.ts.",
@@ -266,7 +266,7 @@ export const PROJECTS: Project[] = [
     title: "Roof Heat-Loss Scan — Project Slot",
     category: "Roofing",
     date: "—",
-    location: "Michigan",
+    location: "Ohio",
     service: "Roofing / Heat Loss",
     description:
       "Placeholder slot for a roofing thermal inspection. Replace with real imagery and observations.",
@@ -278,7 +278,7 @@ export const PROJECTS: Project[] = [
     title: "Solar Array Scan — Project Slot",
     category: "Solar",
     date: "—",
-    location: "Michigan",
+    location: "Ohio",
     service: "Solar Panel Inspection",
     description:
       "Placeholder slot for a solar array thermal inspection. Replace with real imagery and observations.",
@@ -290,7 +290,7 @@ export const PROJECTS: Project[] = [
     title: "Deer Herd Count — Project Slot",
     category: "Wildlife",
     date: "—",
-    location: "Michigan",
+    location: "Ohio",
     service: "Deer Herd Count",
     description:
       "Placeholder slot for a herd count flight. Replace with real imagery and observations.",
@@ -302,7 +302,7 @@ export const PROJECTS: Project[] = [
     title: "Livestock Locate — Project Slot",
     category: "Livestock",
     date: "—",
-    location: "Michigan",
+    location: "Ohio",
     service: "Livestock Tracking",
     description:
       "Placeholder slot for a livestock tracking flight. Replace with real imagery and observations.",
@@ -314,7 +314,7 @@ export const PROJECTS: Project[] = [
     title: "Building Thermal Inspection — Project Slot",
     category: "Thermal Inspection",
     date: "—",
-    location: "Michigan",
+    location: "Ohio",
     service: "Building Thermal Inspection",
     description:
       "Placeholder slot for a building inspection. Replace with real imagery and observations.",

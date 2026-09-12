@@ -11,12 +11,12 @@ export const Route = createFileRoute("/our-work")({
       {
         name: "description",
         content:
-          "Photos from real thermal drone flights across Michigan — deer recovery, wildlife, property and aerial survey work by SkyScan Thermal Solutions.",
+          "Photos from real thermal drone flights across Ohio — deer recovery, wildlife, property and aerial survey work by SkyScan Thermal Solutions.",
       },
       { property: "og:title", content: "Our Work | SkyScan Thermal Solutions" },
       {
         property: "og:description",
-        content: "Photos from real thermal drone recovery and inspection flights across Michigan.",
+        content: "Photos from real thermal drone recovery and inspection flights across Ohio.",
       },
       { property: "og:url", content: "/our-work" },
       { property: "og:type", content: "website" },
@@ -32,7 +32,7 @@ function OurWorkPage() {
       <PageHero
         eyebrow="Portfolio"
         title="Our Work"
-        intro="Photos from completed flights across Michigan."
+        intro="Photos from completed flights across Ohio."
       />
 
       <section className="mx-auto max-w-[80rem] px-4 py-14 md:px-8 md:py-20">
@@ -40,7 +40,7 @@ function OurWorkPage() {
           <span className="hud-label text-primary">Field Gallery</span>
           <h2 className="h-section mt-4">From The Field</h2>
           <p className="mt-4 max-w-2xl text-muted-foreground">
-            Photos from real flights across Michigan — tap any image to enlarge.
+            Photos from real flights across Ohio — tap any image to enlarge.
           </p>
         </Reveal>
         <div className="mt-10">

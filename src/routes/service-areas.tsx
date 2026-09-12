@@ -9,16 +9,16 @@ import { SERVICE_AREAS } from "@/lib/site";
 export const Route = createFileRoute("/service-areas")({
   head: () => ({
     meta: [
-      { title: "Service Areas | Thermal Drone Services in Michigan" },
+      { title: "Service Areas | Thermal Drone Services in Ohio" },
       {
         name: "description",
         content:
-          "SkyScan Thermal Solutions operates thermal drone recovery and inspection services in Michigan. Don't see your location? Contact us to check availability.",
+          "SkyScan Thermal Solutions operates thermal drone recovery and inspection services in Ohio. Don't see your location? Contact us to check availability.",
       },
       { property: "og:title", content: "Service Areas | SkyScan Thermal Solutions" },
       {
         property: "og:description",
-        content: "Thermal drone coverage across Michigan. Check availability for your location.",
+        content: "Thermal drone coverage across Ohio. Check availability for your location.",
       },
       { property: "og:url", content: "/service-areas" },
       { property: "og:type", content: "website" },
@@ -34,19 +34,19 @@ function ServiceAreasPage() {
       <PageHero
         eyebrow="Coverage"
         title="Service Areas"
-        intro="SkyScan Thermal Solutions is based in and operates across Michigan. Travel for a given project depends on distance, conditions, and flight requirements."
+        intro="SkyScan Thermal Solutions is based in and operates across Ohio. Travel for a given project depends on distance, conditions, and flight requirements."
       />
 
       <section className="mx-auto grid max-w-[80rem] gap-10 px-4 py-16 md:px-8 md:py-24 lg:grid-cols-[1.1fr_0.9fr]">
         <Reveal className="panel relative overflow-hidden p-4 md:p-6">
           <div className="absolute inset-0 tech-grid opacity-60" aria-hidden="true" />
-          <div className="hud-label relative mb-3 text-primary">Operating Region — Michigan</div>
+          <div className="hud-label relative mb-3 text-primary">Operating Region — Ohio</div>
           <div className="relative aspect-[4/5] w-full">
             <svg
               viewBox="0 0 100 125"
               className="size-full"
               role="img"
-              aria-label="Simplified map of Michigan showing SkyScan's operating region"
+              aria-label="Simplified map of Ohio showing SkyScan's operating region"
             >
               <defs>
                 <linearGradient id="mi" x1="0" y1="0" x2="1" y2="1">
