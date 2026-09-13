@@ -189,7 +189,18 @@ function ContactPage() {
 
       <section className="mx-auto grid max-w-[80rem] gap-10 px-4 py-14 md:px-8 md:py-20 lg:grid-cols-[1.4fr_0.6fr]">
         <Reveal>
-          <form onSubmit={onSubmit} noValidate className="grid gap-5 md:grid-cols-2">
+          <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="company"
+            encType="multipart/form-data"
+            onSubmit={onSubmit}
+            noValidate
+            className="grid gap-5 md:grid-cols-2"
+          >
+            <input type="hidden" name="form-name" value="contact" />
+
             <input
               type="text"
               name="company"
