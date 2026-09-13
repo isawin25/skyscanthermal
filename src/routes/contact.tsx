@@ -53,6 +53,19 @@ function ContactPage() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const mounted = useRef(Date.now());
 
+  function useNetlifyForms() {
+    if (typeof window === "undefined") return false;
+    const host = window.location.hostname;
+    return !(host === "localhost" || host === "127.0.0.1" || host.endsWith("lovable.app"));
+  }
+
+  async function submitToNetlify(form: HTMLFormElement) {
+    const body = new FormData(form);
+    body.set("form-name", "contact");
+    const res = await fetch("/", { method: "POST", body });
+    if (!res.ok) throw new Error(`Netlify form submission failed (${res.status})`);
+  }
+
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
@@ -71,6 +84,14 @@ function ContactPage() {
     setSending(true);
     setErrors({});
     try {
+      if (useNetlifyForms()) {
+        await submitToNetlify(form);
+        setSent(true);
+        form.reset();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+
       const attachments = await Promise.all(
         files.slice(0, 6).map(async (f) => ({ filename: f.name, content: await toBase64(f) })),
       );
