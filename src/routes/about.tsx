@@ -4,7 +4,7 @@ import { PageHero } from "@/components/site/PageHero";
 import { Reveal } from "@/components/site/Reveal";
 import { RecoveryCTA } from "@/components/site/RecoveryCTA";
 import { CallButton, GhostLink } from "@/components/site/CTAButtons";
-import portrait from "@/assets/photos/hoyt-portrait.jpg.asset.json";
+import portrait from "@/assets/photos/hoyt-portrait.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -71,7 +71,7 @@ function AboutPage() {
         <Reveal>
           <figure className="panel relative aspect-[4/5] overflow-hidden">
             <img
-              src={portrait.url}
+              src={portrait}
               alt="Hoyt Munro, founder and owner of SkyScan Thermal Solutions, in the field"
               loading="lazy"
               className="size-full object-cover"
